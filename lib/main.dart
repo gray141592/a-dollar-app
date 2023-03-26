@@ -1,3 +1,4 @@
+import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
 
 import './routes.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'A dollar app',
+      builder: (context, child) => SafeArea(child: child!),
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,6 +26,23 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        fontFamily: 'Brawler',
+        textTheme: TextTheme(
+          bodySmall: TextStyle(
+            color: DollarTheme.pinkText,
+          ),
+          bodyMedium: TextStyle(
+            color: DollarTheme.orangeText,
+            fontWeight: FontWeight.w400,
+            fontSize: 20,
+          ),
+          bodyLarge: TextStyle(
+            color: DollarTheme.orangeText,
+            fontWeight: FontWeight.w700,
+            fontSize: 27,
+          ),
+        ),
+        backgroundColor: DollarTheme.background,
       ),
       home: Routes.homeRoute,
       routes: Routes.routes,

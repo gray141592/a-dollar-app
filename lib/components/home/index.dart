@@ -1,2 +1,3 @@
 export './pay-dollar-button.dart';
-export './consumable-store.dart';
+export './hero-text.dart';
+export './hero-cta.dart';

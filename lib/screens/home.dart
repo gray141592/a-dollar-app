@@ -7,16 +7,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
-          Text(
-            'Pay a dollar',
-          ),
-          PayDollarButton()
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: const <Widget>[
+        SizedBox(
+          height: 40,
+        ),
+        HeroText(),
+        SizedBox(
+          height: 40,
+        ),
+        HeroCTA(),
+      ],
     );
   }
 }
