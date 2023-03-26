@@ -12,35 +12,42 @@ class Footer extends StatelessWidget {
       height: 10,
     );
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         footerDivider(),
-        emptyTenPixels,
-        Text(
-          "Disclamer:",
-          style: Theme.of(context).textTheme.bodySmall,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              emptyTenPixels,
+              Text(
+                "Disclamer:",
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              emptyTextRow,
+              Text(
+                FooterConstants.disclamer,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              emptyTextRow,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    FooterConstants.inspiredBy,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  Text(
+                    FooterConstants.year,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ),
+              emptyTenPixels,
+              emptyTenPixels,
+            ],
+          ),
         ),
-        emptyTextRow,
-        Text(
-          FooterConstants.disclamer,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
-        emptyTextRow,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              FooterConstants.inspiredBy,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            Text(
-              FooterConstants.year,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
-        ),
-        emptyTenPixels,
-        emptyTenPixels,
       ],
     );
   }

@@ -7,9 +7,12 @@ class Smiley extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: SvgPicture.asset(
-        'images/smajli.svg',
-        semanticsLabel: 'smajli',
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: SvgPicture.asset(
+          'images/smajli.svg',
+          semanticsLabel: 'smajli',
+        ),
       ),
       onTap: () => Navigator.of(context).maybePop(),
     );

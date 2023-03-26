@@ -24,21 +24,15 @@ class HomeLayout extends StatelessWidget {
           }
           return const OfflineScreen();
         },
-        child: Container(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Smiley(),
-                Expanded(
-                  child: body,
-                ),
-                const Footer(),
-              ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Smiley(),
+            Expanded(
+              child: body,
             ),
-          ),
+            const Footer(),
+          ],
         ),
       ),
     );

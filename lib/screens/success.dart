@@ -10,27 +10,17 @@ class SuccessScreen extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const ConfettiExplosion(),
-          Align(
-            alignment: Alignment.center,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'Congratulations! You are the',
-                  ),
-                  Text(
-                    '202,031',
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  const Text(
-                    'curious person.',
-                  ),
-                ],
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              SuccessHero(),
+              SizedBox(
+                height: 20,
               ),
-            ),
+              Share(),
+            ],
           ),
+          const ConfettiExplosion(),
         ],
       ),
     );
