@@ -15,7 +15,7 @@ class SuccessScreen extends StatelessWidget {
             children: const <Widget>[
               SuccessHero(),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               Share(),
             ],

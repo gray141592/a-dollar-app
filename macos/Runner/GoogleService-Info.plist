@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>61104540728-qhsk6fr56g1vp0gg3kavct5hlba1tirt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.61104540728-qhsk6fr56g1vp0gg3kavct5hlba1tirt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDlNLr4zJV1JSaslcbbMjuBZ2wyc-1IrOA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>61104540728</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bigblunter.aDollarApp</string>
+	<key>PROJECT_ID</key>
+	<string>a-dollar-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>a-dollar-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:61104540728:ios:8f200cd84672154592eacd</string>
+</dict>
+</plist>

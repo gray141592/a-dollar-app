@@ -9,13 +9,6 @@ class Share extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          'images/share.svg',
-          semanticsLabel: 'share',
-        ),
-        const SizedBox(
-          height: 10,
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -1,10 +1,32 @@
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 
 import './routes.dart';
+import 'package:a_dollar_app/controllers/index.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  NetworkController networkController = NetworkController();
+  SuccessController successController = SuccessController();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<NetworkController>(
+          create: (_) => networkController,
+        ),
+        ChangeNotifierProvider<SuccessController>(
+          create: (_) => successController,
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -1,5 +1,7 @@
+import 'package:a_dollar_app/controllers/index.dart';
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PayDollarButton extends StatelessWidget {
   const PayDollarButton({super.key});
@@ -8,6 +10,7 @@ class PayDollarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        Provider.of<SuccessController>(context, listen: false).startTimer();
         Navigator.of(context).pushNamed('/success');
       },
       style: ButtonStyle(
