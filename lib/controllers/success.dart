@@ -8,7 +8,7 @@ class SuccessController extends ChangeNotifier {
 
   SuccessController();
 
-  void startTimer() {
+  void startTimer(Function whenExpires) {
     countdown = 60;
     hasAccess = true;
     Timer.periodic(
@@ -17,6 +17,7 @@ class SuccessController extends ChangeNotifier {
         if (countdown == 0) {
           timer.cancel();
           hasAccess = false;
+          whenExpires();
           notifyListeners();
         } else {
           countdown--;

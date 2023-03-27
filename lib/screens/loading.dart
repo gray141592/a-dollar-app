@@ -1,6 +1,5 @@
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});

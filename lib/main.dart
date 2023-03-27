@@ -1,17 +1,13 @@
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'firebase_options.dart';
 
 import './routes.dart';
 import 'package:a_dollar_app/controllers/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  FirebaseController firebaseController = FirebaseController();
   NetworkController networkController = NetworkController();
   SuccessController successController = SuccessController();
   runApp(
@@ -22,6 +18,9 @@ void main() async {
         ),
         ChangeNotifierProvider<SuccessController>(
           create: (_) => successController,
+        ),
+        ChangeNotifierProvider<FirebaseController>(
+          create: (_) => firebaseController,
         ),
       ],
       child: const MyApp(),

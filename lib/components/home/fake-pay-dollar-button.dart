@@ -10,7 +10,12 @@ class PayDollarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Provider.of<SuccessController>(context, listen: false).startTimer();
+        FirebaseController firebaseController =
+            Provider.of<FirebaseController>(context, listen: false);
+        Function whenExpires = firebaseController.stopListening;
+        firebaseController.purchase();
+        Provider.of<SuccessController>(context, listen: false)
+            .startTimer(whenExpires);
         Navigator.of(context).pushNamed('/success');
       },
       style: ButtonStyle(

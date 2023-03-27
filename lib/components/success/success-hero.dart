@@ -1,9 +1,7 @@
-import 'dart:ui';
-
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'purchase-count.dart';
 
 class SuccessHero extends StatelessWidget {
   const SuccessHero({super.key});
@@ -12,7 +10,7 @@ class SuccessHero extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: DollarTheme.cream,
-      child: Container(
+      child: SizedBox(
         height: 225,
         width: double.infinity,
         child: Column(
@@ -26,14 +24,7 @@ class SuccessHero extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              "289,232",
-              style: TextStyle(
-                fontFamily: 'Boris',
-                fontSize: 72,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+            const PurchaseCount(),
             const SizedBox(
               height: 5,
             ),
