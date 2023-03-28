@@ -10,6 +10,9 @@ void main() async {
   FirebaseController firebaseController = FirebaseController();
   NetworkController networkController = NetworkController();
   SuccessController successController = SuccessController();
+  PurchaseController purchaseController = PurchaseController();
+
+  await purchaseController.initialize();
   runApp(
     MultiProvider(
       providers: [
@@ -21,6 +24,9 @@ void main() async {
         ),
         ChangeNotifierProvider<FirebaseController>(
           create: (_) => firebaseController,
+        ),
+        ChangeNotifierProvider<PurchaseController>(
+          create: (_) => purchaseController,
         ),
       ],
       child: const MyApp(),

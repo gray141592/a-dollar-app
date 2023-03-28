@@ -1,6 +1,6 @@
 import 'package:a_dollar_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'fake-pay-dollar-button.dart';
+import 'pay-dollar-button.dart';
 
 class HeroCTA extends StatelessWidget {
   const HeroCTA({super.key});
