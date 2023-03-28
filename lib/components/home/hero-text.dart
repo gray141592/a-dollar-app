@@ -11,7 +11,7 @@ class HeroText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Wellcome to:",
+          "Welcome to:",
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         const SizedBox(

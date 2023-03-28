@@ -1,4 +1,4 @@
-package com.example.a_dollar_app
+package com.bigblunter.aDollarApp
 
 import io.flutter.embedding.android.FlutterActivity
 
