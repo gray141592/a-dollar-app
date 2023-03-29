@@ -12,7 +12,8 @@ class PurchaseController extends ChangeNotifier {
   ProductDetails? _product;
   final bool _kAutoConsume = Platform.isIOS || true;
   bool _isAvailable = false;
-  bool _purchasePending = false;
+  bool purchasePending = false;
+  bool isFailed = false;
   bool _loading = true;
   final List<String> _kProductIds = <String>[
     'onedollarproduct',
@@ -76,33 +77,37 @@ class PurchaseController extends ChangeNotifier {
     if (productDetailResponse.error != null) {
       errorMessage = productDetailResponse.error!.message;
       _product = productDetailResponse.productDetails.first;
-      _purchasePending = false;
+      purchasePending = false;
       _loading = false;
       return;
     }
 
     if (productDetailResponse.productDetails.isEmpty) {
       errorMessage = "Product not found";
-      _purchasePending = false;
+      purchasePending = false;
       _loading = false;
       return;
     }
     _product = productDetailResponse.productDetails.first;
-    _purchasePending = false;
+    purchasePending = false;
     _loading = false;
   }
-
-  void handleError(IAPError error) {}
 
   Future<void> _listenToPurchaseUpdated(
       List<PurchaseDetails> purchaseDetailsList) async {
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.pending) {
         _loading = true;
+        purchasePending = true;
       } else {
         _loading = false;
+        purchasePending = false;
         if (purchaseDetails.status == PurchaseStatus.error) {
-          handleError(purchaseDetails.error!);
+          isFailed = true;
+          errorMessage = "Purchase failed";
+        } else if (purchaseDetails.status == PurchaseStatus.canceled) {
+          isFailed = true;
+          errorMessage = "Purchase cancelled";
         } else if (purchaseDetails.status == PurchaseStatus.purchased ||
             purchaseDetails.status == PurchaseStatus.restored) {
           onSuccess();
@@ -111,17 +116,24 @@ class PurchaseController extends ChangeNotifier {
           await _inAppPurchase.completePurchase(purchaseDetails);
         }
       }
+      notifyListeners();
     }
   }
 
   Future<void> makePurchase() async {
+    isFailed = false;
+    purchasePending = true;
     if (_isAvailable && _product != null) {
       _inAppPurchase.buyConsumable(
           purchaseParam: PurchaseParam(
             productDetails: _product!,
           ),
           autoConsume: _kAutoConsume);
+    } else {
+      isFailed = true;
+      errorMessage = "Purchase not possible";
     }
+    notifyListeners();
   }
 
   void onDispose() {
@@ -132,6 +144,7 @@ class PurchaseController extends ChangeNotifier {
       iosPlatformAddition.setDelegate(null);
     }
     _subscription.cancel();
+    notifyListeners();
   }
 }
 

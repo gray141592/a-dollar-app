@@ -28,6 +28,9 @@ class FirebaseController extends ChangeNotifier {
     if (!_initialized || count == null) {
       return "0";
     }
+    if (count == 1) {
+      return "?";
+    }
     return count.toString();
   }
 
